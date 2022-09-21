@@ -1,0 +1,83 @@
+# x = 3                                           # Python中变量的储存方式
+# y = x
+# print(id(x), id(y))
+# x += 6
+# print(x, y, id(x), id(y))
+
+# from fractions import Fraction                  # 标准库函数fractions的应用
+# x = Fraction(3, 5)
+# y = Fraction(1, 5)
+# print(x + y)
+
+# from decimal import Decimal                      #标准库decimal的应用
+# print(1/9, Decimal(1/9))
+
+
+# print(1, 3, 5, 7)
+# print(1, 3, 5, 7, sep='\t')                         #sep的作用为指定数据之间的分割符，若没有sep函数则默认为空格
+
+# for i in range(10):
+#     print(i, end=" ")
+# for i in range(10):
+#     print(i)
+
+
+# import random
+# x = list(range(11))
+# random.shuffle(x)                        #将列表x随机打乱
+# print(x)
+# y = sorted(x)
+# print(y)
+# z = sorted(y, key=str, reverse=True) #将列表按字符串大小排序,reverse表示降序排序
+# print(z)
+
+
+# x = list(range(10))
+# y = ['python', 'good']
+# print(list(enumerate(x)), end=' ')          #枚举x中的每一个元素，并添加索引
+# print(list(enumerate(y)))
+
+
+# x = map(str, range(10))
+# def add3(v):                                    #定义一个add3（v）函数，返回值为v+3
+#     return v + 3
+# y = map(add3, range(10))                         #map的作用：通过add3（v）函数将range（10）转换为可迭代的对象
+# print(list(x), list(y))
+
+# import random
+# x = random.randint(1, 1e30)             #在(1,10)中随机选一个数
+# print(x)
+# print(list(map(int, str(x))))           #将一个长串整数转换为列表上的单个数字输出
+
+# from functools import reduce
+# x = list(range(10))
+# y = reduce(lambda m, n: m+n, x)          #lambda:隐形函数，reduce函数可以将有两个参数的函数以迭代累积的方式作用到序列x上
+# print(y)
+
+
+# seq = ['tool', '41', '!?', '3#']
+# def func(v):
+#     return v.isalnum()                     #返回值为数字或字母
+# x = filter(func, seq)                         #将func这个单参数函数作用在序列seq上，返回seq中为True的值
+# print(list(x))
+
+
+# x = zip('abcd', '123')                     #zip函数可以将多个序列压缩成一个序列，对应元素位置不变
+# print(list(x))
+# m = list(range(4))
+# n = ['tool', '41', '!@#']
+# y = zip(m, n)
+# print(list(y))
+
+
+#用户输入一个三位自然数，计算并输出其佰位、十位和个位上的数字。
+# x = input('请输入一个三位自然数：')               #第一种方法
+# x = int(x)
+# a = x // 100
+# b = x // 10 % 10
+# c = x % 10
+# print(a, b, c)
+
+# x = input('请输入一个三位自然数：')           #第二种方法
+# a, b, c = map(int, x)
+# print(a, b, c)
