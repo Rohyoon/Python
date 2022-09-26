@@ -1,0 +1,68 @@
+#编写程序，实现分段函数计算
+import string
+
+x = input('请输入x：')      #输入x
+while str.isdigit(x) != True:       #判断输入的x是否为数字，若不是则执行下面代码
+    x = input('输入错误，请输入正确数字：')      #重新输入x
+    continue        #结束本次循环，返回到while继续判断是否为数字
+else:       #输入的x为数字，执行下面代码
+    x = int(x)      #将x从str转换为int
+    if x < 0:       #进行分段函数的分段
+        y = 0
+    elif 0 < x < 5:
+        y = x
+    elif 5 <= x < 10:
+        y = 3*x-5
+    elif 10 <= x < 20:
+        y = x/2-2
+    else:
+        y = 0
+    print('y的值为：', y)       #输出y的值
+    
+    
+    #编写程序，运行后用户输入4位整数作为年份，判断其是否为闰年。如果年份能被400整除，则为闰年；如果年份能被4整除但不能被100整除也为闰年。
+import string
+
+year = input('请输入需要判断的年份：')     #输入年份
+while len(year) != 4 or str.isdigit(year) == False:     #判断输入是否为四位整数，当不是的时候执行下面语句
+    print('输入年份不是4位整数，请重新输入正确的四位整数：', end=' ')      #重新输入四位整数
+    year = input()
+    continue        #结束当前循环
+
+year = int(year)        #输入年份是四位整数时，将year从str变为int
+if year % 400 == 0 or (year % 4 == 0 and year % 100 != 0):      #对输入年份进行判断
+    print('输入年份为闰年。')       #若是，则输出闰年
+else:
+     print('输入年份不为闰年。')     #若不是，则输出不是闰年
+     
+     
+     #生成包含20个随机数的列表，然后将前10个升序排列，后10个降序排列，并输出结果
+import random
+
+list_a = [random.choice(range(100)) for i in range(20)]     #创建一个含有0~100的20个随机数的列表
+print(list_a)
+list_b = list_a[0:10]       #分出列表的前十个元素
+list_c = list_a[10:20]      #分出列表的后十个元素
+list_a = sorted(list_b) + sorted(list_c, reverse=True)      #将前十个元素升序排列、后十个元素降序排列后拼接在一起
+print(list_a)
+
+
+#生成包含一千个0~100的整数，并统计每个元素出现的次数
+import random
+list_a = [random.choice(range(101)) for i in range(1000)]       #创建一个包含一千个0~100整数的列表
+list_b = sorted(list_a)     #将列表升序排列
+print(list_b)
+n = 0
+m = 1
+for i in range(1000):       #创建循环体，通过比较大小确定元素出现次数
+    if i == 999:        #特殊情况：当循环到最后一个元素时，由于比较大小时下标会超出索引，因此将最后一个元素单独比较
+        while list_b[i-1] == list_b[i]:     #进行下标依次减一的元素比较
+            i -= 1
+            m += 1
+        print(list_b[999], '出现次数：', m)      #当出现元素不相等时终止循环
+        break
+    if list_b[i+1] != list_b[i]:        #一般情况：从第一个元素一直比较到倒数第二个元素
+        print(list_b[i], '出现次数：', n+1)      #如果出现不相等，就打印出现次数
+        n = 0       #将n清零，便于下一次计数
+    else:       #若相等，则进行计数
+        n += 1
